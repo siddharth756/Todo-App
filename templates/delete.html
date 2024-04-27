@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete-Page{% endblock %}
+
+{% block content %}
+{% load static %}
+
+  <div class="detail">
+    <h1>Comfirm Delete</h1>
+    <p>Are you sure you want to delete "{{ object.title }}"?</p>
+    <p class="task-text">
+      <strong>Completed:</strong>
+        {% if todo.completed %}
+        <img src="{% static 'icon/yes.png' %}" alt="yes" width="25px">
+        {% else %}
+        <img src="{% static 'icon/decline.png' %}" alt="no" width="30px">
+        {% endif %}
+      </p>
+    <form method="post">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-primary">Delete</button>
+      <a href="{% url 'home' %}" class="btn btn-danger">Cancel</a>
+    </form>
+  </div>
+
+{% endblock %}

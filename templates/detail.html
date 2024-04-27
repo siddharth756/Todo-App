@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Detail-Page{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="detail">
+    <h1>{{ todo.title }}</h1>
+    <p>{{ todo.description }}</p>
+    <p class="task-text">
+        <strong>Completed:</strong>
+          {% if todo.completed %}
+          <img src="{% static 'icon/yes.png' %}" alt="yes" width="25px">
+          {% else %}
+          <img src="{% static 'icon/decline.png' %}" alt="no" width="30px">
+          {% endif %}
+        </p>
+    <a href="{% url 'update' todo.pk %}" class="btn btn-primary">Edit task</a>
+    <a href="{% url 'delete' todo.pk %}" class="btn btn-danger">Delete task</a>
+</div>
+
+{% endblock %}
