@@ -26,10 +26,10 @@
 </div>
 
 <div class="main">
-  {% for todo in todo %}
+  {% for todo in todo reversed %}
 
   <div class="tasks mb-3">
-    <div class="mt-3">
+    <div class="mt-3 tasks-content">
       <h4 class="task-title">{{todo.title}}</h4>
       <p class="task-text">{{ todo.description|truncatechars:50 }}</p>
       <p class="task-text">
@@ -42,12 +42,12 @@
       </p>
     </div>
 
-    <div class="task-buttons">
-      <div class="m-2 v">
-        <a href="{% url 'detail' todo.pk %}" class="btn btn-primary">View</a>
+    <div class="tasks-buttons">
+      <div class="m-2">
+        <a href="{% url 'detail' todo.pk %}" class="btn btn-primary" style="width: 70px;">View</a>
       </div>
-      <div class="m-2 d">
-        <a href="{% url 'delete' todo.pk %}" class="btn btn-danger">Delete</a>
+      <div class="m-2">
+        <a href="{% url 'delete' todo.pk %}" class="btn btn-danger" style="width: 70px;">Delete</a>
       </div>
     </div>
   </div>

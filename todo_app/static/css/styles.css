@@ -167,6 +167,10 @@ nav a:nth-child(3):hover ~ #indicator {
   justify-content: space-around;
 }
 
+.tasks-content {
+  width: 50%;
+}
+
 .main .empty {
   margin-top: 100px;
 }
@@ -257,9 +261,16 @@ nav a:nth-child(3):hover ~ #indicator {
     width: 100%;
     flex-direction: column;
   }
+  
+  .tasks .tasks-content {
+    width: 70%;
+  }
 
-  .tasks .task-buttons {
+  .tasks .tasks-buttons {
     display: flex;
+    height: fit-content;
+    align-items: center;
+    width: 70%;
   }
   
   .form-main {
@@ -272,7 +283,13 @@ nav a:nth-child(3):hover ~ #indicator {
 } 
 
 @media screen and (max-width: 425px) {
-  .tasks .task-buttons {
+  .tasks .tasks-content {
     width: 100%;
+  }
+
+  .tasks .tasks-buttons {
+    width: 100%;
+    height: fit-content;
+    align-items: center;
   }
 }
