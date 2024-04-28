@@ -173,6 +173,7 @@ nav a:nth-child(3):hover ~ #indicator {
 
 .main .empty {
   margin-top: 100px;
+  text-align: center;
 }
 
 /* =================== icon ==================== */
@@ -184,6 +185,11 @@ nav a:nth-child(3):hover ~ #indicator {
   width: 50px;
 }
   
+.icon a img:hover {
+  filter: opacity(70%);
+}
+  
+
 /* ================== create page =================*/
 
 .form-main {
