@@ -14,6 +14,10 @@ class todolistview(LoginRequiredMixin,ListView):
     template_name = "home.html"
     context_object_name = "todo"
 
+    def get_queryset(self):
+        queryset = Todo.objects.all()
+        return queryset.filter(user=self.request.user)
+    
 
 class tododetailview(LoginRequiredMixin,DetailView):
     model = Todo
@@ -25,6 +29,10 @@ class todocreateview(LoginRequiredMixin,CreateView):
     form_class = todoForm
     template_name = "create.html"
     success_url = reverse_lazy("home")
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 class todoupdateview(LoginRequiredMixin,UpdateView):
     model = Todo
