@@ -1,4 +1,5 @@
 import os
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -45,7 +46,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'todo_project.urls'
 
-TEMPLATES_DIR = os.path.join(BASE_DIR,"templates")
+TEMPLATES_DIR = os.path.join(BASE_DIR,'templates')
 
 TEMPLATES = [
     {
@@ -112,7 +113,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR,'todo_app/static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -122,3 +126,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = "login"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = LOGIN_URL
+
+# Heroku
+django_heroku.settings(locals())
